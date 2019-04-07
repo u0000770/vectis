@@ -1,0 +1,46 @@
+﻿@model PackerApp28_11.Models.CustomerAuctionVM
+
+@{
+    ViewData["Title"] = "Auctions";
+}
+
+<h2>Customer Auction</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Auction Title</th>
+            <th>Date</th>
+            
+        </tr>
+    </thead>
+    <tbody class="text-capitalize">
+        @foreach (var item in Model.listOfAuctions)
+        {
+                      
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuctionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuctionDate)
+            </td>
+            <td>
+                @Html.ActionLink("Select", "PickingList", new { Cid = item.customerId, Aid = item.AuctionId})
+                <!-- link  - action - data  --> 
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

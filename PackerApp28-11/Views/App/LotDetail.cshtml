@@ -1,0 +1,86 @@
+﻿@model PackerApp28_11.Models.LotDetail
+
+@{
+    ViewData["Title"] = "listOfLotDetails";
+}
+
+<style>
+    img 
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    textarea 
+    {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 12px;
+        resize: none;
+    }
+
+    textarea:focus 
+    {
+        background-color: lightblue;
+    }
+
+</style>
+
+<h2>Lot Details </h2>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lot Number</th>
+                <th>Lot Description</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-capitalize">
+            @foreach (var item in Model.LotDetails)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LotNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LotDescription)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Lot Image</h5>
+                        <img class="scale-down;" align-content:center; src="@Url.Content(item.image)" alt="Lot Image"
+                             style="width:auto;height:50%; ">
+                    </td>
+                </tr>
+            }
+        </table>
+
+</div>
+
+<div>
+    <p><strong>Comments:</strong></p>
+
+    <form>
+        <textarea id="lotComments" name="lotComments" placeholder="Write any comments in this box.."></textarea>
+
+        <input type="checkbox"
+               id="AsDescribed"
+               value="LotAsDescribed" />
+        <label for="AsDescribed">As Described</label>
+    </form>
+</div>
+
+
+            
+

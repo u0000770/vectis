@@ -1,0 +1,40 @@
+﻿@model PackerApp28_11.Models.AuctionTypeVM
+<p style="margin-top:20px"></p>
+
+
+@using (Html.BeginForm("ReadSelection", "App", FormMethod.Post))
+{
+    <span>Packer Name: </span>
+    @Html.DropDownList("PackerId", (IEnumerable<SelectListItem>)ViewBag.PackerId,
+                             "Select Name", new { @class = "form-control" })
+    <br />
+
+    <span>Select Auction Type: </span>
+    <ul>
+
+        @foreach (var item in Model.listOfAuctionTypes)
+        {
+            <li>
+                <input id="atype@(item.id)" type="checkbox"
+                       name="SelectedAuctionTypeIds"
+                       value="@item.id"
+                       @(Model.SelectedAuctionTypeIds.Contains(item.id) ? "checked" : "") />
+                @item.type
+
+
+            </li>
+        }
+    </ul>
+    <br />
+    <div>
+        @*<p>@Html.TextBoxFor(model => model.toDate, new { @class = "datepicker" })</p>*@
+        <span>Please select start date: </span>
+        <p>@Html.TextBoxFor(model => model.fromDate, new { @type = "date", @class = "form-control datepicker", @Value = Model.fromDate.ToString("yyyy-MM-dd") })</p>
+        <span>Please select end date: </span>
+        <p>@Html.TextBoxFor(model => model.toDate, new { @type = "date", @class = "form-control datepicker", @Value = Model.toDate.ToString("yyyy-MM-dd") })</p>
+        @*<p>@Html.TextBoxFor(model => model.fromDate, new { @class = "datepicker" })</p>*@
+        <p><input type="submit" value="Next" /></p>
+    </div>
+
+}
+

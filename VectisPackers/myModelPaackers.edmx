@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PackingModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="mockAddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Addr1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Addr2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Addr3" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="35" />
+          <Property Name="County" Type="nvarchar" MaxLength="35" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="35" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="MockAuction">
+          <Key>
+            <PropertyRef Name="AuctionID" />
+          </Key>
+          <Property Name="AuctionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuctionType" Type="int" Nullable="false" />
+          <Property Name="AuctionDate" Type="datetime" Nullable="false" />
+          <Property Name="AuctionDays" Type="int" Nullable="false" />
+          <Property Name="AuctionTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CatalogueComplete" Type="bit" Nullable="false" />
+          <Property Name="MarkedCompleteBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarkedCompleteDate" Type="datetime" />
+          <Property Name="CatalogueExported" Type="bit" Nullable="false" />
+          <Property Name="ExportedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExportedDate" Type="datetime" />
+          <Property Name="CatalogueUploaded" Type="bit" Nullable="false" />
+          <Property Name="UploadedBY" Type="nvarchar" MaxLength="50" />
+          <Property Name="UploadedDate" Type="datetime" />
+          <Property Name="LettersProduced" Type="bit" Nullable="false" />
+          <Property Name="LettersBy" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LettersDate" Type="datetime" />
+          <Property Name="ViewingText" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ImageFolder" Type="nvarchar" MaxLength="255" />
+          <Property Name="CataloguePrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CatalogueThumb" Type="nvarchar" MaxLength="255" />
+          <Property Name="CatalogueImage" Type="nvarchar" MaxLength="255" />
+          <Property Name="SubsUpdated" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mockClient">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TitleID" Type="nvarchar" MaxLength="20" />
+          <Property Name="Forename" Type="nvarchar" MaxLength="30" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrimaryAddID" Type="int" />
+          <Property Name="DeliveryAddID" Type="int" />
+          <Property Name="BillingAddID" Type="int" />
+          <Property Name="TelephoneOther" Type="nvarchar" MaxLength="30" />
+          <Property Name="TelephoneMobile" Type="nvarchar" MaxLength="30" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="30" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FreeCatalogue" Type="bit" Nullable="false" />
+          <Property Name="SageBuyerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SageVendorID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnlineVectisID" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnlineEbayID" Type="nvarchar" MaxLength="64" />
+          <Property Name="ContactEmail" Type="bit" />
+          <Property Name="ContactPost" Type="bit" />
+          <Property Name="ContactTelephone" Type="bit" />
+          <Property Name="ContactSMS" Type="bit" />
+          <Property Name="DefaultCommBuyer" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DefaultCommVendor" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DefaultVatRate" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="UsePrimaryForBilling" Type="bit" />
+          <Property Name="UsePrimaryForDelivery" Type="bit" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Sendnewsletter" Type="bit" Nullable="false" />
+          <Property Name="BidLiveChecked" Type="bit" Nullable="false" />
+          <Property Name="BidProxyChecked" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Packing.dbo.mockLot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mockLot">
+          <Key>
+            <PropertyRef Name="LotID" />
+            <PropertyRef Name="AuctionID" />
+            <PropertyRef Name="CatSectionID" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="BottomPrice" />
+            <PropertyRef Name="TopPrice" />
+            <PropertyRef Name="CollectionID" />
+            <PropertyRef Name="ParentLotID" />
+            <PropertyRef Name="Checked" />
+            <PropertyRef Name="BuyerPaddleID" />
+            <PropertyRef Name="BuyerPaddleNo" />
+            <PropertyRef Name="BidEnteredWhileBookOpen" />
+          </Key>
+          <Property Name="LotID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuctionID" Type="int" Nullable="false" />
+          <Property Name="CatAuxID" Type="int" />
+          <Property Name="ImportedToMain" Type="bit" />
+          <Property Name="DayNo" Type="int" />
+          <Property Name="CatSectionID" Type="int" Nullable="false" />
+          <Property Name="LotNumber" Type="smallint" />
+          <Property Name="Description" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Reserve" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="BottomPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TopPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="StartingPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CollectionID" Type="int" Nullable="false" />
+          <Property Name="BuyerID" Type="int" />
+          <Property Name="HammerPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="WinningBuyer" Type="int" />
+          <Property Name="NextBuyer" Type="int" />
+          <Property Name="AbsMinPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DateLastAmended" Type="datetime" />
+          <Property Name="LastAmendedWho" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentLotID" Type="bigint" Nullable="false" />
+          <Property Name="SaleType" Type="int" />
+          <Property Name="Checked" Type="bit" Nullable="false" />
+          <Property Name="UnsoldRef" Type="nvarchar" MaxLength="500" />
+          <Property Name="BuyerPaddleID" Type="int" Nullable="false" />
+          <Property Name="BuyerPaddleNo" Type="int" Nullable="false" />
+          <Property Name="WinningBid" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="NextBid" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="VectisCode" Type="nvarchar" MaxLength="500" />
+          <Property Name="BuyerInvoiceID" Type="int" />
+          <Property Name="VendorInvoiceID" Type="int" />
+          <Property Name="Withdrawn" Type="bit" />
+          <Property Name="BidEnteredWhileBookOpen" Type="bit" Nullable="false" />
+          <Property Name="WebLotTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="Keywords" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="mockRefAuctionType">
+          <Key>
+            <PropertyRef Name="AuctionTypeID" />
+          </Key>
+          <Property Name="AuctionTypeID" Type="int" Nullable="false" />
+          <Property Name="AuctionTypeDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuctionTypeDeleted" Type="bit" Nullable="false" />
+          <Property Name="AuctionTypeDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PackingStaff">
+          <Key>
+            <PropertyRef Name="PackerId" />
+          </Key>
+          <Property Name="PackerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PackingModel1StoreContainer">
+          <EntitySet Name="mockAddress" EntityType="Self.mockAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MockAuction" EntityType="Self.MockAuction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mockClient" EntityType="Self.mockClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mockRefAuctionType" EntityType="Self.mockRefAuctionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PackingStaff" EntityType="Self.PackingStaff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mockLot" EntityType="Self.mockLot" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mockLot].[LotID] AS [LotID], 
+    [mockLot].[AuctionID] AS [AuctionID], 
+    [mockLot].[CatAuxID] AS [CatAuxID], 
+    [mockLot].[ImportedToMain] AS [ImportedToMain], 
+    [mockLot].[DayNo] AS [DayNo], 
+    [mockLot].[CatSectionID] AS [CatSectionID], 
+    [mockLot].[LotNumber] AS [LotNumber], 
+    [mockLot].[Description] AS [Description], 
+    [mockLot].[Reserve] AS [Reserve], 
+    [mockLot].[BottomPrice] AS [BottomPrice], 
+    [mockLot].[TopPrice] AS [TopPrice], 
+    [mockLot].[StartingPrice] AS [StartingPrice], 
+    [mockLot].[CollectionID] AS [CollectionID], 
+    [mockLot].[BuyerID] AS [BuyerID], 
+    [mockLot].[HammerPrice] AS [HammerPrice], 
+    [mockLot].[WinningBuyer] AS [WinningBuyer], 
+    [mockLot].[NextBuyer] AS [NextBuyer], 
+    [mockLot].[AbsMinPrice] AS [AbsMinPrice], 
+    [mockLot].[DateLastAmended] AS [DateLastAmended], 
+    [mockLot].[LastAmendedWho] AS [LastAmendedWho], 
+    [mockLot].[ParentLotID] AS [ParentLotID], 
+    [mockLot].[SaleType] AS [SaleType], 
+    [mockLot].[Checked] AS [Checked], 
+    [mockLot].[UnsoldRef] AS [UnsoldRef], 
+    [mockLot].[BuyerPaddleID] AS [BuyerPaddleID], 
+    [mockLot].[BuyerPaddleNo] AS [BuyerPaddleNo], 
+    [mockLot].[WinningBid] AS [WinningBid], 
+    [mockLot].[NextBid] AS [NextBid], 
+    [mockLot].[VectisCode] AS [VectisCode], 
+    [mockLot].[BuyerInvoiceID] AS [BuyerInvoiceID], 
+    [mockLot].[VendorInvoiceID] AS [VendorInvoiceID], 
+    [mockLot].[Withdrawn] AS [Withdrawn], 
+    [mockLot].[BidEnteredWhileBookOpen] AS [BidEnteredWhileBookOpen], 
+    [mockLot].[WebLotTitle] AS [WebLotTitle], 
+    [mockLot].[Keywords] AS [Keywords]
+    FROM [dbo].[mockLot] AS [mockLot]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PackingModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="mockAddress">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Addr1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addr2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Addr3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MockAuction">
+          <Key>
+            <PropertyRef Name="AuctionID" />
+          </Key>
+          <Property Name="AuctionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuctionType" Type="Int32" Nullable="false" />
+          <Property Name="AuctionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuctionDays" Type="Int32" Nullable="false" />
+          <Property Name="AuctionTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CatalogueComplete" Type="Boolean" Nullable="false" />
+          <Property Name="MarkedCompleteBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MarkedCompleteDate" Type="DateTime" Precision="3" />
+          <Property Name="CatalogueExported" Type="Boolean" Nullable="false" />
+          <Property Name="ExportedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExportedDate" Type="DateTime" Precision="3" />
+          <Property Name="CatalogueUploaded" Type="Boolean" Nullable="false" />
+          <Property Name="UploadedBY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UploadedDate" Type="DateTime" Precision="3" />
+          <Property Name="LettersProduced" Type="Boolean" Nullable="false" />
+          <Property Name="LettersBy" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="LettersDate" Type="DateTime" Precision="3" />
+          <Property Name="ViewingText" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ImageFolder" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CataloguePrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CatalogueThumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CatalogueImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SubsUpdated" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mockClient">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TitleID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Forename" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrimaryAddID" Type="Int32" />
+          <Property Name="DeliveryAddID" Type="Int32" />
+          <Property Name="BillingAddID" Type="Int32" />
+          <Property Name="TelephoneOther" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneMobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FreeCatalogue" Type="Boolean" Nullable="false" />
+          <Property Name="SageBuyerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SageVendorID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnlineVectisID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnlineEbayID" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="Boolean" />
+          <Property Name="ContactPost" Type="Boolean" />
+          <Property Name="ContactTelephone" Type="Boolean" />
+          <Property Name="ContactSMS" Type="Boolean" />
+          <Property Name="DefaultCommBuyer" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DefaultCommVendor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DefaultVatRate" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UsePrimaryForBilling" Type="Boolean" />
+          <Property Name="UsePrimaryForDelivery" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Sendnewsletter" Type="Boolean" Nullable="false" />
+          <Property Name="BidLiveChecked" Type="Boolean" Nullable="false" />
+          <Property Name="BidProxyChecked" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mockRefAuctionType">
+          <Key>
+            <PropertyRef Name="AuctionTypeID" />
+          </Key>
+          <Property Name="AuctionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="AuctionTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuctionTypeDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="AuctionTypeDefault" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PackingStaff">
+          <Key>
+            <PropertyRef Name="PackerId" />
+          </Key>
+          <Property Name="PackerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mockLot">
+          <Key>
+            <PropertyRef Name="LotID" />
+            <PropertyRef Name="AuctionID" />
+            <PropertyRef Name="CatSectionID" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="BottomPrice" />
+            <PropertyRef Name="TopPrice" />
+            <PropertyRef Name="CollectionID" />
+            <PropertyRef Name="ParentLotID" />
+            <PropertyRef Name="Checked" />
+            <PropertyRef Name="BuyerPaddleID" />
+            <PropertyRef Name="BuyerPaddleNo" />
+            <PropertyRef Name="BidEnteredWhileBookOpen" />
+          </Key>
+          <Property Name="LotID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuctionID" Type="Int32" Nullable="false" />
+          <Property Name="CatAuxID" Type="Int32" />
+          <Property Name="ImportedToMain" Type="Boolean" />
+          <Property Name="DayNo" Type="Int32" />
+          <Property Name="CatSectionID" Type="Int32" Nullable="false" />
+          <Property Name="LotNumber" Type="Int16" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reserve" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="BottomPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TopPrice" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="StartingPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CollectionID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerID" Type="Int32" />
+          <Property Name="HammerPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="WinningBuyer" Type="Int32" />
+          <Property Name="NextBuyer" Type="Int32" />
+          <Property Name="AbsMinPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DateLastAmended" Type="DateTime" Precision="3" />
+          <Property Name="LastAmendedWho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentLotID" Type="Int64" Nullable="false" />
+          <Property Name="SaleType" Type="Int32" />
+          <Property Name="Checked" Type="Boolean" Nullable="false" />
+          <Property Name="UnsoldRef" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerPaddleID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerPaddleNo" Type="Int32" Nullable="false" />
+          <Property Name="WinningBid" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="NextBid" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="VectisCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BuyerInvoiceID" Type="Int32" />
+          <Property Name="VendorInvoiceID" Type="Int32" />
+          <Property Name="Withdrawn" Type="Boolean" />
+          <Property Name="BidEnteredWhileBookOpen" Type="Boolean" Nullable="false" />
+          <Property Name="WebLotTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Keywords" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="myPackingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mockAddresses" EntityType="Self.mockAddress" />
+          <EntitySet Name="MockAuctions" EntityType="Self.MockAuction" />
+          <EntitySet Name="mockClients" EntityType="Self.mockClient" />
+          <EntitySet Name="mockRefAuctionTypes" EntityType="Self.mockRefAuctionType" />
+          <EntitySet Name="PackingStaffs" EntityType="Self.PackingStaff" />
+          <EntitySet Name="mockLots" EntityType="Self.mockLot" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PackingModel1StoreContainer" CdmEntityContainer="myPackingEntities">
+          <EntitySetMapping Name="mockAddresses">
+            <EntityTypeMapping TypeName="PackingModel1.mockAddress">
+              <MappingFragment StoreEntitySet="mockAddress">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="Addr1" ColumnName="Addr1" />
+                <ScalarProperty Name="Addr2" ColumnName="Addr2" />
+                <ScalarProperty Name="Addr3" ColumnName="Addr3" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MockAuctions">
+            <EntityTypeMapping TypeName="PackingModel1.MockAuction">
+              <MappingFragment StoreEntitySet="MockAuction">
+                <ScalarProperty Name="AuctionID" ColumnName="AuctionID" />
+                <ScalarProperty Name="AuctionType" ColumnName="AuctionType" />
+                <ScalarProperty Name="AuctionDate" ColumnName="AuctionDate" />
+                <ScalarProperty Name="AuctionDays" ColumnName="AuctionDays" />
+                <ScalarProperty Name="AuctionTitle" ColumnName="AuctionTitle" />
+                <ScalarProperty Name="CatalogueComplete" ColumnName="CatalogueComplete" />
+                <ScalarProperty Name="MarkedCompleteBy" ColumnName="MarkedCompleteBy" />
+                <ScalarProperty Name="MarkedCompleteDate" ColumnName="MarkedCompleteDate" />
+                <ScalarProperty Name="CatalogueExported" ColumnName="CatalogueExported" />
+                <ScalarProperty Name="ExportedBy" ColumnName="ExportedBy" />
+                <ScalarProperty Name="ExportedDate" ColumnName="ExportedDate" />
+                <ScalarProperty Name="CatalogueUploaded" ColumnName="CatalogueUploaded" />
+                <ScalarProperty Name="UploadedBY" ColumnName="UploadedBY" />
+                <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+                <ScalarProperty Name="LettersProduced" ColumnName="LettersProduced" />
+                <ScalarProperty Name="LettersBy" ColumnName="LettersBy" />
+                <ScalarProperty Name="LettersDate" ColumnName="LettersDate" />
+                <ScalarProperty Name="ViewingText" ColumnName="ViewingText" />
+                <ScalarProperty Name="ImageFolder" ColumnName="ImageFolder" />
+                <ScalarProperty Name="CataloguePrice" ColumnName="CataloguePrice" />
+                <ScalarProperty Name="CatalogueThumb" ColumnName="CatalogueThumb" />
+                <ScalarProperty Name="CatalogueImage" ColumnName="CatalogueImage" />
+                <ScalarProperty Name="SubsUpdated" ColumnName="SubsUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mockClients">
+            <EntityTypeMapping TypeName="PackingModel1.mockClient">
+              <MappingFragment StoreEntitySet="mockClient">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="TitleID" ColumnName="TitleID" />
+                <ScalarProperty Name="Forename" ColumnName="Forename" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="PrimaryAddID" ColumnName="PrimaryAddID" />
+                <ScalarProperty Name="DeliveryAddID" ColumnName="DeliveryAddID" />
+                <ScalarProperty Name="BillingAddID" ColumnName="BillingAddID" />
+                <ScalarProperty Name="TelephoneOther" ColumnName="TelephoneOther" />
+                <ScalarProperty Name="TelephoneMobile" ColumnName="TelephoneMobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="FreeCatalogue" ColumnName="FreeCatalogue" />
+                <ScalarProperty Name="SageBuyerID" ColumnName="SageBuyerID" />
+                <ScalarProperty Name="SageVendorID" ColumnName="SageVendorID" />
+                <ScalarProperty Name="OnlineVectisID" ColumnName="OnlineVectisID" />
+                <ScalarProperty Name="OnlineEbayID" ColumnName="OnlineEbayID" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactPost" ColumnName="ContactPost" />
+                <ScalarProperty Name="ContactTelephone" ColumnName="ContactTelephone" />
+                <ScalarProperty Name="ContactSMS" ColumnName="ContactSMS" />
+                <ScalarProperty Name="DefaultCommBuyer" ColumnName="DefaultCommBuyer" />
+                <ScalarProperty Name="DefaultCommVendor" ColumnName="DefaultCommVendor" />
+                <ScalarProperty Name="DefaultVatRate" ColumnName="DefaultVatRate" />
+                <ScalarProperty Name="UsePrimaryForBilling" ColumnName="UsePrimaryForBilling" />
+                <ScalarProperty Name="UsePrimaryForDelivery" ColumnName="UsePrimaryForDelivery" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Sendnewsletter" ColumnName="Sendnewsletter" />
+                <ScalarProperty Name="BidLiveChecked" ColumnName="BidLiveChecked" />
+                <ScalarProperty Name="BidProxyChecked" ColumnName="BidProxyChecked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mockRefAuctionTypes">
+            <EntityTypeMapping TypeName="PackingModel1.mockRefAuctionType">
+              <MappingFragment StoreEntitySet="mockRefAuctionType">
+                <ScalarProperty Name="AuctionTypeID" ColumnName="AuctionTypeID" />
+                <ScalarProperty Name="AuctionTypeDescription" ColumnName="AuctionTypeDescription" />
+                <ScalarProperty Name="AuctionTypeDeleted" ColumnName="AuctionTypeDeleted" />
+                <ScalarProperty Name="AuctionTypeDefault" ColumnName="AuctionTypeDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PackingStaffs">
+            <EntityTypeMapping TypeName="PackingModel1.PackingStaff">
+              <MappingFragment StoreEntitySet="PackingStaff">
+                <ScalarProperty Name="PackerId" ColumnName="PackerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mockLots">
+            <EntityTypeMapping TypeName="PackingModel1.mockLot">
+              <MappingFragment StoreEntitySet="mockLot">
+                <ScalarProperty Name="LotID" ColumnName="LotID" />
+                <ScalarProperty Name="AuctionID" ColumnName="AuctionID" />
+                <ScalarProperty Name="CatAuxID" ColumnName="CatAuxID" />
+                <ScalarProperty Name="ImportedToMain" ColumnName="ImportedToMain" />
+                <ScalarProperty Name="DayNo" ColumnName="DayNo" />
+                <ScalarProperty Name="CatSectionID" ColumnName="CatSectionID" />
+                <ScalarProperty Name="LotNumber" ColumnName="LotNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Reserve" ColumnName="Reserve" />
+                <ScalarProperty Name="BottomPrice" ColumnName="BottomPrice" />
+                <ScalarProperty Name="TopPrice" ColumnName="TopPrice" />
+                <ScalarProperty Name="StartingPrice" ColumnName="StartingPrice" />
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="HammerPrice" ColumnName="HammerPrice" />
+                <ScalarProperty Name="WinningBuyer" ColumnName="WinningBuyer" />
+                <ScalarProperty Name="NextBuyer" ColumnName="NextBuyer" />
+                <ScalarProperty Name="AbsMinPrice" ColumnName="AbsMinPrice" />
+                <ScalarProperty Name="DateLastAmended" ColumnName="DateLastAmended" />
+                <ScalarProperty Name="LastAmendedWho" ColumnName="LastAmendedWho" />
+                <ScalarProperty Name="ParentLotID" ColumnName="ParentLotID" />
+                <ScalarProperty Name="SaleType" ColumnName="SaleType" />
+                <ScalarProperty Name="Checked" ColumnName="Checked" />
+                <ScalarProperty Name="UnsoldRef" ColumnName="UnsoldRef" />
+                <ScalarProperty Name="BuyerPaddleID" ColumnName="BuyerPaddleID" />
+                <ScalarProperty Name="BuyerPaddleNo" ColumnName="BuyerPaddleNo" />
+                <ScalarProperty Name="WinningBid" ColumnName="WinningBid" />
+                <ScalarProperty Name="NextBid" ColumnName="NextBid" />
+                <ScalarProperty Name="VectisCode" ColumnName="VectisCode" />
+                <ScalarProperty Name="BuyerInvoiceID" ColumnName="BuyerInvoiceID" />
+                <ScalarProperty Name="VendorInvoiceID" ColumnName="VendorInvoiceID" />
+                <ScalarProperty Name="Withdrawn" ColumnName="Withdrawn" />
+                <ScalarProperty Name="BidEnteredWhileBookOpen" ColumnName="BidEnteredWhileBookOpen" />
+                <ScalarProperty Name="WebLotTitle" ColumnName="WebLotTitle" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ccad590db7494eb598ce8953e92e4121" Name="Diagram1">
+        <EntityTypeShape EntityType="TestVectis2008Model.Company" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Config" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Country" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Currency" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.dtproperty" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.EmailAccount" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.LotKeyword" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.MessageTemplate" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.QNRGroup" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Question" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Questionnaire" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.QuestionOption" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Response" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Result" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.SagePayPayment" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.SagePayToken" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.StateProvince" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblActivityLog" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblAddress" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblAuction" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblAuctionDay" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblAudit" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblBid" Width="1.5" PointX="7.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblCatAux" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblCatSection" Width="1.5" PointX="8.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblClient" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblCollection" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblConfigSettingsDev" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblDataFeed" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblEmail_Alerts" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tbllAuctionView" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblLot" Width="1.5" PointX="10.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblNewsletterClient" Width="1.5" PointX="16.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblPaddle" Width="1.5" PointX="5.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblPayment" Width="1.5" PointX="5.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefAuctionType" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefCatalogueType" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefCategoryType" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefCollectionType" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefCommissionRate" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefCreditCardType" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefSaleType" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefTitle" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefVatRate" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblReportInfo" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSaleBuyer" Width="1.5" PointX="8.25" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSaleInvoice" Width="1.5" PointX="6" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSaleVendor" Width="1.5" PointX="11.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSayuFeedAuction" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSayuFeedBid" Width="1.5" PointX="14.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSayuFeedCode" Width="1.5" PointX="16.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSayuFeedUser" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSession" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblWebsiteSubscriptionRate" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.web_tblCurrency" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.web_tblMessage" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.web_tblWebUsers" Width="1.5" PointX="20.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.WebsiteSubscription" Width="1.5" PointX="5.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.Log" Width="1.5" PointX="20.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblAuctionDayRange" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblClientCategory" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblCollectionType" Width="1.5" PointX="7.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblConfigSetting" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblLotBid" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefBidIncrement" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblRefDayRange" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSecFunction" Width="1.5" PointX="22.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSecGroup" Width="1.5" PointX="22.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSecGroupFunction" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSecUserFunction" Width="1.5" PointX="16.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSecUser" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblSubscription" Width="1.5" PointX="24.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.tblTelephoneLotInterest" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestVectis2008Model.web_tblClientSession" Width="1.5" PointX="24.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="TestVectis2008Model.StateProvince_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_MessageTemplate_EmailAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblAuction_tblRefAuctionType" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblBid_tblAuction" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblLot_tblAuction" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblBid_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblBid_tblLot" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblLot_tblCatAux" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblLot_tblCatSection" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblClient_tblRefVatRates" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblCollection_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblPaddle_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblPaymentDetails_tblClients" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblSaleBuyer_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblSaleVendor_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_WebsiteSubscription_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblCollectionType_tblCollection" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblLot_tblCollection" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblClientCategory_tblRefCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblCollectionType_tblRefCollectionType" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblSaleBuyer_tblSaleInvoice" ManuallyRouted="false" />
+        <AssociationConnector Association="TestVectis2008Model.FK_tblSaleVendor_tblSaleInvoice" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

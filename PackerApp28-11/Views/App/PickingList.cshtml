@@ -1,0 +1,40 @@
+﻿@model PackerApp28_11.Models.CustomerAuctionLotVMItem
+
+@{
+    ViewData["Title"] = "ClientAuctionLots";
+}
+
+<h2>Customer Auction Lots for @Model.CustomerName</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lot Number</th>
+            <th>Auction Title</th>
+        </tr>
+            </thead>
+            <tbody class="text-capitalize">
+                @foreach (var item in Model.CustomerAuctionLot)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuctionLotNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuctionTitle)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Select", "LotDetail", new { lotid = item.AuctionLotId,
+                                                                       lotNo = item.AuctionLotNumber,
+                                                                       Aid = item.AuctionId })
+                        <!-- link  - action - data  -->
+
+                        @*@Html.ActionLink("Select", "PickingList", new { Cid = item.customerId, Aid = item.AuctionId })*@
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+
+

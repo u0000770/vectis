@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0A30973-D116-4939-A467-156431150B19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VectisDB</RootNamespace>
+    <AssemblyName>VectisDB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Company.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Config.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dtproperty.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailAccount.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LotKeyword.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageTemplate.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVectis.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVectis.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVectis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelVectis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelVectis.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QNRGroup.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Question.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Questionnaire.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionOption.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Response.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SagePayPayment.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SagePayToken.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateProvince.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblActivityLog.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAddress.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAuction.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAuctionDay.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAuctionDayRange.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAudit.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBid.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCatAux.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCatSection.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblClient.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblClientCategory.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCollection.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCollectionType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblConfigSetting.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblConfigSettingsDev.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDataFeed.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmail_Alerts.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbllAuctionView.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLot.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLotBid.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNewsletterClient.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPaddle.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPayment.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefAuctionType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefBidIncrement.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefCatalogueType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefCategoryType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefCollectionType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefCommissionRate.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefCreditCardType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefDayRange.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefSaleType.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefTitle.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRefVatRate.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblReportInfo.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSaleBuyer.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSaleInvoice.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSaleVendor.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSayuFeedAuction.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSayuFeedBid.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSayuFeedCode.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSayuFeedUser.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecFunction.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecGroup.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecGroupFunction.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecUser.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSecUserFunction.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSession.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSubscription.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTelephoneLotInterest.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblWebsiteSubscriptionRate.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebsiteSubscription.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="web_tblClientSession.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="web_tblCurrency.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="web_tblMessage.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="web_tblWebUsers.cs">
+      <DependentUpon>ModelVectis.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ModelVectis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelVectis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Content\bootstrap-grid.css.map" />
+    <None Include="Content\bootstrap-grid.min.css.map" />
+    <None Include="Content\bootstrap-reboot.css.map" />
+    <None Include="Content\bootstrap-reboot.min.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <None Include="ModelVectis.edmx.diagram">
+      <DependentUpon>ModelVectis.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\bootstrap.bundle.min.js.map" />
+    <None Include="Scripts\bootstrap.js.map" />
+    <None Include="Scripts\bootstrap.min.js.map" />
+    <None Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\esm\popper-utils.min.js.map" />
+    <None Include="Scripts\esm\popper.js.map" />
+    <None Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <None Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\popper-utils.min.js.map" />
+    <None Include="Scripts\popper.js.map" />
+    <None Include="Scripts\popper.min.js.map" />
+    <None Include="Scripts\README.md" />
+    <None Include="Scripts\umd\popper-utils.js.map" />
+    <None Include="Scripts\umd\popper-utils.min.js.map" />
+    <None Include="Scripts\umd\popper.js.map" />
+    <None Include="Scripts\umd\popper.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="ModelVectis.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelVectis.Context.cs</LastGenOutput>
+      <DependentUpon>ModelVectis.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelVectis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelVectis.edmx</DependentUpon>
+      <LastGenOutput>ModelVectis.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

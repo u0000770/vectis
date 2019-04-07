@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerAuctionState">
+          <Key>
+            <PropertyRef Name="CustomerAuctionId" />
+          </Key>
+          <Property Name="CustomerAuctionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerLots">
+          <Key>
+            <PropertyRef Name="CustomerLotId" />
+          </Key>
+          <Property Name="CustomerLotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PackerId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="LotId" Type="int" Nullable="false" />
+          <Property Name="DatePicked" Type="datetime" />
+          <Property Name="DatePacked" Type="datetime" />
+          <Property Name="ToyFair" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Packers">
+          <Key>
+            <PropertyRef Name="PackerId" />
+          </Key>
+          <Property Name="PackerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerLots_Packers">
+          <End Role="Packers" Type="Self.Packers" Multiplicity="1" />
+          <End Role="CustomerLots" Type="Self.CustomerLots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packers">
+              <PropertyRef Name="PackerId" />
+            </Principal>
+            <Dependent Role="CustomerLots">
+              <PropertyRef Name="PackerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CustomerAuctionState" EntityType="Self.CustomerAuctionState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerLots" EntityType="Self.CustomerLots" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Packers" EntityType="Self.Packers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerLots_Packers" Association="Self.FK_CustomerLots_Packers">
+            <End Role="Packers" EntitySet="Packers" />
+            <End Role="CustomerLots" EntitySet="CustomerLots" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CustomerAuctionState">
+          <Key>
+            <PropertyRef Name="CustomerAuctionId" />
+          </Key>
+          <Property Name="CustomerAuctionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerLot">
+          <Key>
+            <PropertyRef Name="CustomerLotId" />
+          </Key>
+          <Property Name="CustomerLotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PackerId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="LotId" Type="Int32" Nullable="false" />
+          <Property Name="DatePicked" Type="DateTime" Precision="3" />
+          <Property Name="DatePacked" Type="DateTime" Precision="3" />
+          <Property Name="ToyFair" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Packer" Relationship="Self.FK_CustomerLots_Packers" FromRole="CustomerLots" ToRole="Packers" />
+        </EntityType>
+        <EntityType Name="Packer">
+          <Key>
+            <PropertyRef Name="PackerId" />
+          </Key>
+          <Property Name="PackerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CustomerLots" Relationship="Self.FK_CustomerLots_Packers" FromRole="Packers" ToRole="CustomerLots" />
+        </EntityType>
+        <Association Name="FK_CustomerLots_Packers">
+          <End Role="Packers" Type="Self.Packer" Multiplicity="1" />
+          <End Role="CustomerLots" Type="Self.CustomerLot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Packers">
+              <PropertyRef Name="PackerId" />
+            </Principal>
+            <Dependent Role="CustomerLots">
+              <PropertyRef Name="PackerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomerAuctionStates" EntityType="Self.CustomerAuctionState" />
+          <EntitySet Name="CustomerLots" EntityType="Self.CustomerLot" />
+          <EntitySet Name="Packers" EntityType="Self.Packer" />
+          <AssociationSet Name="FK_CustomerLots_Packers" Association="Self.FK_CustomerLots_Packers">
+            <End Role="Packers" EntitySet="Packers" />
+            <End Role="CustomerLots" EntitySet="CustomerLots" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="PackerEntities">
+          <EntitySetMapping Name="CustomerAuctionStates">
+            <EntityTypeMapping TypeName="Model.CustomerAuctionState">
+              <MappingFragment StoreEntitySet="CustomerAuctionState">
+                <ScalarProperty Name="CustomerAuctionId" ColumnName="CustomerAuctionId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerLots">
+            <EntityTypeMapping TypeName="Model.CustomerLot">
+              <MappingFragment StoreEntitySet="CustomerLots">
+                <ScalarProperty Name="CustomerLotId" ColumnName="CustomerLotId" />
+                <ScalarProperty Name="PackerId" ColumnName="PackerId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="LotId" ColumnName="LotId" />
+                <ScalarProperty Name="DatePicked" ColumnName="DatePicked" />
+                <ScalarProperty Name="DatePacked" ColumnName="DatePacked" />
+                <ScalarProperty Name="ToyFair" ColumnName="ToyFair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Packers">
+            <EntityTypeMapping TypeName="Model.Packer">
+              <MappingFragment StoreEntitySet="Packers">
+                <ScalarProperty Name="PackerId" ColumnName="PackerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
